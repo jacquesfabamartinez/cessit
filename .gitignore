@@ -1,0 +1,11 @@
+# --- Python & Compiler Artifacts ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# --- IDE & Editor Settings ---
+.vscode/
