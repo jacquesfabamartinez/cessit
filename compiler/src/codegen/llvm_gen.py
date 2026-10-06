@@ -26,7 +26,7 @@ class LLVMCodeGenerator:
 
         self.module = ir.Module(name=module_name)
         self.builder: Optional[ir.IRBuilder] = None
-        self.named_values: Dict[str, ir.AllocaInst] = {}
+        self.named_values: Dict[str, ir.AllocaInstr] = {}
         self.current_function: Optional[ir.Function] = None
 
         self._setup_types()
@@ -160,7 +160,7 @@ class LLVMCodeGenerator:
         
         raise NotImplementedError(f"Binary operator '{node.op}' not implemented in codegen.")
 
-    def _create_entry_block_alloca(self, fn: ir.Function, var_name: str, ty: ir.Type) -> ir.AllocaInst:
+    def _create_entry_block_alloca(self, fn: ir.Function, var_name: str, ty: ir.Type) -> ir.AllocaInstr:
         """Helper to create an alloca instruction in the entry block of a function."""
         with self.builder.goto_entry_block():
             builder = ir.IRBuilder(self.builder.block)
